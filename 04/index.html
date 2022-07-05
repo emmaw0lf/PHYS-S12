@@ -24,24 +24,48 @@
 
 
 
-<center><h1>Week 3: Electronics and Tools</h1></center> 
+<center><h1>Week 4: Microcontroller programming</h1></center> 
 
-<p> This week, we learned about multiple tools in the lab like saws, drills, and soldering tools. 
+<p> This weeks assignment was to program an arduino board to do something. In my case, it was the fourth of July weekend and I'm not an on campus student, so I wasn't able to go to the lab at all which was challenging. I had to do most of the assignment on my own and even so I had limited capability. I wrote the code for my program, but I couldn't test it so I had no way of knowing if it worked. However, the next lab I go to I'm planning on completely wrapping up my project. <br> Here's my code!</p>
 
-<h2><center>**ASSIGNMENT**</center></h2>
+<pre><code>
+int buttonState = digitalRead(8);
+const int A1A = 3;  // define pin 3 for A-1A 
+const int A1B = 4;  // define pin 4 for A-1B 
 
-<p>This classes assignemt was to make a kinetic sculpture. I decided to make a ferris wheel, since I had actually made one a long time ago in middle school! I had fun designing this, and it wasn't too challenging to put together.</p>
+void setup() {
+  pinMode(A1A, OUTPUT);     
+  pinMode(A1B, OUTPUT);
+  digitalWrite(A1A, LOW);    
+  digitalWrite(A1B, LOW);
+}
 
-![design](./design.png)
+void loop() {
+  // start the motor 
+  digitalWrite(A1A, HIGH);   
+  digitalWrite(A1B, LOW);
+  delay(4000);              
 
-<p>I took it to the lab, laser cut the design, and then used a metal dowel to hold it togehter. I fastened the wheels to it, then rested the dowels on a stand that I had made. I hot glued the motor to the dowel, soldered it, and then connected it to the battery and bam! It spun.</p>
+  // stop the motor
+  digitalWrite(A1A, LOW);    
+  digitalWrite(A1B, LOW);   
+  delay(2000);           
+  
+void loop() {
+if (buttonState == HIGH) {
+  digitalWrite(A1A, HIGH);
+  digitalWrite(A1B, HIGH);
+} else {
+  digitalWrite(A1A, LOW);
+  digitalWrite(A1B, LOW);
+}
 
-![spinning](./spin.gif)
+}
+</code></pre> 
 
-<p>This project made me feel super creative, and I'm glad that I was able to make it. The spacing wasn't super well done between the wheels, and I hope to revisit the project and make it better in the future by fixing the spacing and adding cars!</p>
 
-![pic](./pic1.png)
-![pic](./pic2.png)
+
+
 
 </xmp>
 </body>
