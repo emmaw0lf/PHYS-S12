@@ -41,20 +41,12 @@ void setup() {
 }
 
 void loop() {
-  // start the motor 
-  digitalWrite(A1A, HIGH);   
-  digitalWrite(A1B, LOW);
-  delay(4000);              
-
-  // stop the motor
-  digitalWrite(A1A, LOW);    
-  digitalWrite(A1B, LOW);   
-  delay(2000);           
-  
-void loop() {
 if (buttonState == HIGH) {
   digitalWrite(A1A, HIGH);
   digitalWrite(A1B, HIGH);
+  delay(3000);
+  digitalWrite(A1A, LOW);    
+  digitalWrite(A1B, LOW);
 } else {
   digitalWrite(A1A, LOW);
   digitalWrite(A1B, LOW);
