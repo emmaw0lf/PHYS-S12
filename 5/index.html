@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>PHYSCI 70: Intro to Digital Fabrication </title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div style="align-items: left; justify-content:left;" class="container-fluid">
+    <h3 style="margin: 15px"> PHYSCI 70: Intro to Digital Fabrication</h3>
+    <div class="navbar-nav">
+      <h4><a class="nav-link" href="./index.html">Home</a></h4>
+      <h4><a class="nav-link" href="./about.html">About</a></h4>
+      <h4><a class="nav-link" href="./01_intro/index.html">Final Project</a></h>
+    </div>
+  </div>
+</nav>
+
+<body>
+
+
+<xmp theme="journal" style="display:none;">
+
+
+
+<center><h1>Week 4: Microcontroller programming</h1></center> 
+
+<p> This weeks assignment was to program an arduino board to do something. In my case, it was the fourth of July weekend and I'm not an on campus student, so I wasn't able to go to the lab at all which was challenging. I had to do most of the assignment on my own and even so I had limited capability. I wrote the code for my program, but I couldn't test it so I had no way of knowing if it worked. However, the next lab I go to I'm planning on completely wrapping up my project. <br> Here's my code!</p>
+
+<pre><code>
+int buttonState = digitalRead(8);
+const int A1A = 3;  // define pin 3 for A-1A 
+const int A1B = 4;  // define pin 4 for A-1B 
+
+void setup() {
+  pinMode(A1A, OUTPUT);     
+  pinMode(A1B, OUTPUT);
+  digitalWrite(A1A, LOW);    
+  digitalWrite(A1B, LOW);
+}
+
+void loop() {
+if (buttonState == HIGH) {
+  digitalWrite(A1A, HIGH);
+  digitalWrite(A1B, HIGH);
+  delay(3000);
+  digitalWrite(A1A, LOW);    
+  digitalWrite(A1B, LOW);
+} else {
+  digitalWrite(A1A, LOW);
+  digitalWrite(A1B, LOW);
+}
+
+}
+</code></pre> 
+
+
+
+
+
+</xmp>
+</body>
+
+<script src="https://strapdownjs.com/v/0.2/strapdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+</html>
