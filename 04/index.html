@@ -10,9 +10,9 @@
   <div style="align-items: left; justify-content:left;" class="container-fluid">
     <h3 style="margin: 15px"> PHYSCI 70: Intro to Digital Fabrication</h3>
     <div class="navbar-nav">
-      <h4><a class="nav-link" href="./index.html">Home</a></h4>
-      <h4><a class="nav-link" href="./about.html">About</a></h4>
-      <h4><a class="nav-link" href="./01_intro/index.html">Final Project</a></h>
+      <h4><a class="nav-link" href="../index.html">Home</a></h4>
+      <h4><a class="nav-link" href="../about.html">About</a></h4>
+      <h4><a class="nav-link" href="../finalproject.html">Final Project</a></h>
     </div>
   </div>
 </nav>
@@ -34,17 +34,20 @@ const int A1A = 3;  // define pin 3 for A-1A
 const int A1B = 4;  // define pin 4 for A-1B 
 
 void setup() {
+  Serial.begin(9600);
   pinMode(A1A, OUTPUT);     
   pinMode(A1B, OUTPUT);
   digitalWrite(A1A, LOW);    
   digitalWrite(A1B, LOW);
+  pinMode(8, INPUT);
 }
 
 void loop() {
-if (buttonState == HIGH) {
+  buttonState = digitalRead(8);
+if (buttonState == LOW) {
   digitalWrite(A1A, HIGH);
-  digitalWrite(A1B, HIGH);
-  delay(3000);
+  digitalWrite(A1B, LOW);
+  Serial.println("HIGH");
   digitalWrite(A1A, LOW);    
   digitalWrite(A1B, LOW);
 } else {
