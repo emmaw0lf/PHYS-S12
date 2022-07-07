@@ -1,9 +1,9 @@
 body {
-    font: 20px Alegreya Sans SC, sans-serif;
+    font: 20px Monaco, monospace;
     line-height: 1.8;
     color: black;
-    padding-top: 0px !important;
-    background-color: lightgrey;
+    padding-top: 5px;
+    background-color: skyblue;
   }
 
 p {font-size: 16px;}
