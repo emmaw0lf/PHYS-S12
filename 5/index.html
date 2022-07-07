@@ -25,43 +25,35 @@
 
 
 
-<center><h1>Week 4: Microcontroller programming</h1></center> 
+<center><h1>Week 5: 3D Printing</h1></center> 
 
-<p> This weeks assignment was to program an Arduino board to do something. I wanted to connect a button to a motor to make it run when it was pressed. I was a beginner when it came to coding in Arduino, but I was able to figure out how to use it enough in order to make the button do what I want. <br> Here's my code!</p>
+<p>For this week, we had to 3D print something related to our projects as well as make a 3D scan. I printed out a minature model of the cat bowl that I was going to use for my final project, and I was fairly happy with the result! To figure out how to model it in, I followed <a href="https://www.youtube.com/watch?v=aYihSHdp3js">this tutorial.</a> After watching the tutorial, I sketched out a rough guide for the bowl in procreate.</p>
 
-<pre><code>
-int buttonState = digitalRead(8);
-const int A1A = 3;  // define pin 3 for A-1A 
-const int A1B = 4;  // define pin 4 for A-1B 
+![Sketch](./art1.png) 
 
-void setup() {
-  pinMode(A1A, OUTPUT);     
-  pinMode(A1B, OUTPUT);
-  digitalWrite(A1A, LOW);    
-  digitalWrite(A1B, LOW);
-}
+<p> After I made the sketch, I exported it to Fusion 360, then roughly sketched over it as well as moved the Fusion sketch.</p>
 
-void loop() {
-if (buttonState == HIGH) {
-  digitalWrite(A1A, HIGH);
-  digitalWrite(A1B, HIGH);
-  delay(3000);
-  digitalWrite(A1A, LOW);    
-  digitalWrite(A1B, LOW);
-} else {
-  digitalWrite(A1A, LOW);
-  digitalWrite(A1B, LOW);
-}
+![Fusion sketch](./fusionsketch1.png)
 
-}
-</code></pre> 
+<p>I made the sketch 3D by rotating it around the axis, and then I had the file that I could move to PrusaSlicer to then take to the printer.</p>
 
-<p>It was really fun learning how to code this, and the sense of accomplishment I felt after learning how to do it was great. I hope to incorporate the code into my final project for the button to dispenser part. <br> Below is a video of my Arduino setup and how it works!</p>
+![Bowl](./bowl.png)
 
-![Movie](./Circuit.mov)
+<p>I exported the <a download="" href="./emmabowl1.stl">G-code</a> from PrusaSlicer, then printed it out!</p>
+
+![First print](./print1.png)
+![Second print](./print2.png)
+
+<h4><center>3D scan</center></h4>
+
+<p>Well... the 3D scan went interestingly. I used an app called ScandyPro on my iPhone 11 Pro. It didn't fully scan my neck, and there were a bunch of holes. At least it looks like me...</p>
+
+![me](./monster.jpg)
+
+<p>...right?<br>Ignoring the scariness of it, it was pretty straight forward. The link to my file is <a download="" href="./me-mm.stl">here.</a></p>
 
 
-<p>Finally, there's the circuit diagram. I wasn't super confident on how to draw it, but in the end I managed to.</p> 
+
 
 </xmp>
 </body>

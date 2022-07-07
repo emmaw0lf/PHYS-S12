@@ -17,6 +17,7 @@
   </div>
 </nav>
 
+
 <body>
 
 
@@ -26,7 +27,7 @@
 
 <center><h1>Week 4: Microcontroller programming</h1></center> 
 
-<p> This weeks assignment was to program an arduino board to do something. In my case, it was the fourth of July weekend and I'm not an on campus student, so I wasn't able to go to the lab at all which was challenging. I had to do most of the assignment on my own and even so I had limited capability. I wrote the code for my program, but I couldn't test it so I had no way of knowing if it worked. However, the next lab I go to I'm planning on completely wrapping up my project. <br> Here's my code!</p>
+<p> This weeks assignment was to program an Arduino board to do something. I wanted to connect a button to a motor to make it run when it was pressed. I was a beginner when it came to coding in Arduino, but I was able to figure out how to use it enough in order to make the button do what I want. <br> Here's my code!</p>
 
 <pre><code>
 int buttonState = digitalRead(8);
@@ -34,20 +35,17 @@ const int A1A = 3;  // define pin 3 for A-1A
 const int A1B = 4;  // define pin 4 for A-1B 
 
 void setup() {
-  Serial.begin(9600);
   pinMode(A1A, OUTPUT);     
   pinMode(A1B, OUTPUT);
   digitalWrite(A1A, LOW);    
   digitalWrite(A1B, LOW);
-  pinMode(8, INPUT);
 }
 
 void loop() {
-  buttonState = digitalRead(8);
-if (buttonState == LOW) {
+if (buttonState == HIGH) {
   digitalWrite(A1A, HIGH);
-  digitalWrite(A1B, LOW);
-  Serial.println("HIGH");
+  digitalWrite(A1B, HIGH);
+  delay(3000);
   digitalWrite(A1A, LOW);    
   digitalWrite(A1B, LOW);
 } else {
@@ -58,9 +56,12 @@ if (buttonState == LOW) {
 }
 </code></pre> 
 
+<p>It was really fun learning how to code this, and the sense of accomplishment I felt after learning how to do it was great. I hope to incorporate the code into my final project for the button to dispenser part. <br> Below is a video of my Arduino setup and how it works!</p>
+
+![Movie](./Circuit.mov)
 
 
-
+<p>Finally, there's the circuit diagram. I wasn't super confident on how to draw it, but in the end I managed to.</p> 
 
 </xmp>
 </body>
