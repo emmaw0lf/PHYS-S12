@@ -37,6 +37,8 @@
 
 ![Temp graph](./tempgraph.png)
 
+<p>The dips in the graph are from when I touched ice, then the sensor, and the peaks are when I touched the sensor with warm hands.</p>
+
 <pre><code>
 int ThermistorPin = A0;
 int Vo;
@@ -61,6 +63,10 @@ void loop() {
   delay(500);
 }
 </code></pre> 
+
+![set up](./copper.jpeg)
+
+<h1><center>Second sensor</center></h1>
 
 <p>For the sensor I fabricated, I used copper tape to make a capacitive sensor and made it so when the copper touched, an LED lit up. It wasn't too challenging wiring this, and I took the code from <a href="https://nathanmelenbrink.github.io/lab/input/capacitance/txrx.html">here</a> and then modified it so there was an if statement for the LED. I had to find the range, and it roughly was between 0-1500. This meant that when it was over 750, the LED was lit up.</p>
 
@@ -118,6 +124,9 @@ long tx_rx() {        // Function to execute rx_tx algorithm and return a value
 
 ![Sensor graph](./othergraph.png)
 
+<p>The peaks in the graph is when the copper tape was touching, and the dips were when they were far apart.</p>
+
+![temp set up](./thermo.jpeg)
 
 <p>Finally, here's a gif of the LED lighting up!</p>
 
