@@ -25,34 +25,44 @@
 
 
 
-<center><h1>Week 5: 3D Printing</h1></center> 
+<center><h1>Week 6: Electronic Input Devices</h1></center> 
 
-<p>For this week, we had to 3D print something related to our projects as well as make a 3D scan. I printed out a minature model of the cat bowl that I was going to use for my final project, and I was fairly happy with the result! To figure out how to model it in, I followed <a href="https://www.youtube.com/watch?v=aYihSHdp3js">this tutorial.</a> After watching the tutorial, I sketched out a rough guide for the bowl in procreate.</p>
+<p>This weeks assignment was to use a sensor from a kit to measure a physical quantity and calibrate it and to fabricate a sensor using copper tape.</p>
 
-![Sketch](./art1.png) 
+<p>For the first part of the assignment, I chose to design a thermistor. I referenced <a href="https://wujibi123.github.io/PHYS_S-12/07_ElectronicInput/index.html"> this</a> to build the circuit, and then I used the code <a href="https://nathanmelenbrink.github.io/intro-dig-fab/06_input/index.html"> on the website</a> to put into arduino. From there, I had a working circuit!</p>
 
-<p> After I made the sketch, I exported it to Fusion 360, then roughly sketched over it as well as moved the Fusion sketch.</p>
+![]()
 
-![Fusion sketch](./fusionsketch1.png)
+<p>However, the serial plotter on arduino was having trouble using the data from the code, so I tweaked it slightly and made it so it only printed the number, not the celcius sign or the "temperature:" part. After that, the graph worked!</p>
 
-<p>I made the sketch 3D by rotating it around the axis, and then I had the file that I could move to PrusaSlicer to then take to the printer.</p>
+![Temp graph](./tempgraph.png)
 
-![Bowl](./bowl.png)
+<pre><code>
+int ThermistorPin = A0;
+int Vo;
+float R1 = 10000;
+float R2, T;
+float A = 3.354e-03;
+float B = 2.5698e-4;
 
-<p>I exported the <a download href="./emmabowl1.gcode">G-code</a> from PrusaSlicer, then printed it out!</p>
+void setup() {
+  Serial.begin(9600);           
+}
 
-![First print](./print1.png)
-![Second print](./print2.png)
+void loop() {
 
-<h4><center>3D scan</center></h4>
+  Vo = analogRead(ThermistorPin);
+  R2 = R1 * 1/(1023.0 / (float)Vo - 1.0);  //Calculate resistance of thermistor from voltage divider math.
+  T = (1.0 / (A + B*log(R2/R1) ));  // Calculate temperature using datasheet formula.
+  T = T - 273.15;                   //Convert from Kelvin to Celcius.
 
-<p>Well... the 3D scan went interestingly. I used an app called ScandyPro on my iPhone 11 Pro. It didn't fully scan my neck, and there were a bunch of holes. At least it looks like me...</p>
+  Serial.println(T);
 
-![me](./monster.jpg)
+  delay(500);
+}
+</code></pre> 
 
-<p>...right?<br><br>Ignoring the scariness of it, it was pretty straight forward. The link to my file is <a download href="./me-mm.stl">here.</a></p>
-
-
+<p>For the sensor I fabricated, I used
 
 
 </xmp>
