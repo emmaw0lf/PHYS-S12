@@ -69,7 +69,7 @@ void setup(void) {
 void loop() {
   result = tx_rx();
   Serial.println(result);
-  if (result > 6000 && result < 12000) {
+  if (result > 2000 && result < 12000) {
     bg.bgColor = red;
     bg.screen(bg.bgColor);
 
@@ -104,7 +104,5 @@ long tx_rx() {        // Function to execute rx_tx algorithm and return a value
   }
 
   return sum;
-
-}
 
 }
