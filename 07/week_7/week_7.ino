@@ -69,7 +69,7 @@ void setup(void) {
 void loop() {
   result = tx_rx();
   Serial.println(result);
-  if (result > 2000 && result < 12000) {
+  if (result > 2700 && result < 12000) {
     bg.bgColor = red;
     bg.screen(bg.bgColor);
 
