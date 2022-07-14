@@ -1,9 +1,9 @@
-#include <Adafruit_GFX.h>    
-#include <Adafruit_ST7735.h> 
-#include <Adafruit_ST7789.h> 
+#include <Adafruit_GFX.h>
+#include <Adafruit_ST7735.h>
+#include <Adafruit_ST7789.h>
 #include <SPI.h>
 
-#if defined(ARDUINO_FEATHER_ESP32) 
+#if defined(ARDUINO_FEATHER_ESP32)
 #define TFT_CS         14
 #define TFT_RST        15
 #define TFT_DC         32
@@ -16,7 +16,7 @@
 #else
 
 #define TFT_CS        10
-#define TFT_RST        9 
+#define TFT_RST        9
 #define TFT_DC         8
 #endif
 
@@ -27,16 +27,16 @@ int blue = ST77XX_BLUE;
 class Background
 {
   public:
-  int bgColor;
-  void screen(int color) {
-    tft.fillScreen(color);
-  }
-  Background(int);
+    int bgColor;
+    void screen(int color) {
+      tft.fillScreen(color);
+    }
+    Background(int);
 }
 ;
 
 Background::Background(int backgroundColor): bgColor(backgroundColor) {
-  
+
 }
 
 
@@ -50,10 +50,10 @@ Background bg = Background(red);
 void setup(void) {
   Serial.begin(9600);
   Serial.print(F("Hello! ST77xx TFT Test"));
-  pinMode(tx_pin, OUTPUT);    
+  pinMode(tx_pin, OUTPUT);
   pinMode(13, OUTPUT);
   Serial.begin(9600);
-  tft.init(135, 240);         
+  tft.init(135, 240);
 
   Serial.println(F("Initialized"));
 
@@ -102,7 +102,9 @@ long tx_rx() {        // Function to execute rx_tx algorithm and return a value
 
 
   }
- 
+
   return sum;
+
+}
 
 }
