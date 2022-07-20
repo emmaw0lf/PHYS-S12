@@ -27,9 +27,14 @@
 
 <center><h1>9: Radio, Wifi, and Bluetooth</h1></center> 
 
-<div class="scroll">
-        <pre><code>
-            #include <WiFi.h>
+<p>This week we needed to control a board from a local wireless network and program a microcontroller to obtain and respond to information from the internet. I wanted to make an on/off button on a website that would control a DC motor. 
+</p>
+
+<p>First I wanted to figure out how to connect the motor to the ESP32 board. I followed <a href="http://www.esp32learning.com/code/esp32-and-l9110-fan-module-example.php"> this tutorial</a> to get a rough idea of how to wire, minus the battery, and it worked when I ran test code.</p>
+
+<pre style="height: 500px; overflow: scroll;"><code>
+
+#include <WiFi.h>
 
 int INA = 26;
 int INB = 27;
@@ -167,9 +172,8 @@ void loop() {
     Serial.println("");
   }
 }
-        </code></pre>
-    </div>
 
+</pre></code>
 
 </xmp>
 </body>
