@@ -27,11 +27,18 @@
 
 <center><h1>9: Radio, Wifi, and Bluetooth</h1></center> 
 
-<p>This week we needed to control a board from a local wireless network and program a microcontroller to obtain and respond to information from the internet. I wanted to make an on/off button on a website that would control a DC motor. 
+<p>This week we needed to control a board from a local wireless network and program a microcontroller to obtain and respond to information from the internet. I wanted to make an on/off button on a website that would control a DC motor. I was a bit scared to start the assignment 
 </p>
 
 <p>First I wanted to figure out how to connect the motor to the ESP32 board. I followed <a href="http://www.esp32learning.com/code/esp32-and-l9110-fan-module-example.php"> this tutorial</a> to get a rough idea of how to wire, minus the battery, and it worked when I ran test code.</p>
 
+![circuit](./circuit.png)
+
+<p>Next, I wanted to make the website, so I followed <a href="https://randomnerdtutorials.com/esp32-web-server-arduino-ide/"> randomnerdtutorials </a> and got the rough code for the website, where I then made some modifications to it so it suited my circuit more.</p>
+
+![website](./website.png)
+
+<p>The ip address for my website was 192.168.0.218, so if you paste it into the server anytime that my code is running, it works to control it. <br><br>Finally, here's the code for the website!</p>
 <pre style="height: 500px; overflow: scroll;"><code>
 
 #include <WiFi.h>
@@ -174,6 +181,8 @@ void loop() {
 }
 
 </pre></code>
+
+<p>I was a bit nervous going into this assignment because it seemed so intimidating
 
 </xmp>
 </body>
