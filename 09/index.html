@@ -41,7 +41,7 @@
 <p>The ip address for my website was <a href="192.168.0.218"> 192.168.0.218 </a>, so if you paste it into the server anytime that my code is running, it works to control it. <br><br>Finally, here's the code for the website!</p>
 <pre style="height: 500px; overflow: scroll;"><code>
 
-#include &ltWiFi.h&gt
+#include &lt;WiFi.h&gt;
 
 int INA = 26;
 int INB = 27;
@@ -107,7 +107,7 @@ void loop() {
     previousTime = currentTime;
     Serial.println("New Client.");          // print a message out in the serial port
     String currentLine = "";                // make a String to hold incoming data from the client
-    while (client.connected() && currentTime - previousTime &lt= timeoutTime) {  // loop while the client's connected
+    while (client.connected() && currentTime - previousTime &lt;= timeoutTime) {  // loop while the client's connected
       currentTime = millis();
       if (client.available()) {             // if there's bytes to read from the client,
         char c = client.read();             // read a byte, then
@@ -125,37 +125,37 @@ void loop() {
             client.println();
 
             // turns the GPIOs on and off
-            if (header.indexOf("GET /26/on") &gt= 0) {
+            if (header.indexOf("GET /26/on") &gt;= 0) {
               Serial.println("GPIO 26 on");
               output26State = "on";
               digitalWrite(output26, HIGH);
-            } else if (header.indexOf("GET /26/off") &gt= 0) {
+            } else if (header.indexOf("GET /26/off") &gt;= 0) {
               Serial.println("GPIO 26 off");
               output26State = "off";
               digitalWrite(output26, LOW);
             } 
 
             // Display the HTML web page
-            client.println("&lt!DOCTYPE html&gt&lthtml&gt");
-            client.println("&lthead&gt&ltmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt");
-            client.println("&ltlink rel=\"icon\" href=\"data:,\"&gt");
+            client.println("&lt;!DOCTYPE html&gt;&lt;html&gt;");
+            client.println("&lt;head&gt;&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;");
+            client.println("&lt;link rel=\"icon\" href=\"data:,\"&gt;");
             // CSS to style the on/off buttons
             // Feel free to change the background-color and font-size attributes to fit your preferences
-            client.println("&ltstyle&gthtml { font-family: Monospace; display: inline-block; margin: 0px auto; text-align: center;}");
+            client.println("&lt;style&gt;html { font-family: Monospace; display: inline-block; margin: 0px auto; text-align: center;}");
             client.println(".button { background-color: #FFBDD3; border: none; color: white; padding: 16px 40px; border-radius: 15px;");
             client.println("text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}");
-            client.println(".button2 {background-color: #555555;}&lt/style&gt&lt/head&gt");
+            client.println(".button2 {background-color: #555555;}&lt;/style&gt;&lt;/head&gt;");
 
             // Web Page Heading
-            client.println("&ltbody&gt&lth1&gtDC MOTOR CONTROL&lt/h1&gt");
+            client.println("&lt;body&gt;&lt;h1&gt;DC MOTOR CONTROL&lt;/h1&gt;");
 
             // Display current state, and ON/OFF buttons for GPIO 26
-            client.println("&ltp&gtThe motor is currently " + output26State + "&lt/p&gt");
+            client.println("&lt;p&gt;The motor is currently " + output26State + "&lt;/p&gt;");
             // If the output26State is off, it displays the ON button
             if (output26State == "off") {
-              client.println("&ltp&gt&lta href=\"/26/on\"&gt&ltbutton class=\"button\"&gtON&lt/button&gt&lt/a&gt&lt/p&gt");
+              client.println("&lt;p&gt;&lt;a href=\"/26/on\"&gt;&lt;button class=\"button\"&gt;ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
             } else {
-              client.println("&ltp&gt&lta href=\"/26/off\"&gt&ltbutton class=\"button button2\"&gtOFF&lt/button&gt&lt/a&gt&lt/p&gt");
+              client.println("&lt;p&gt;&lt;a href=\"/26/off\"&gt;&lt;button class=\"button button2\"&gt;OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
             }
 
 
