@@ -29,13 +29,16 @@
 
 <p>This week, the assignment was to make a machine that has at least one stepper motor and to demonstrate you can calibrate its position. I wanted to work on the dispensing mechanism for my final project, and this week was actually what convinced me to use a stepper motor. It's a lot more precise and it would be way easier to time for the different amounts of food to dispense.</p>
 
+<p>First, I had to code the circiut. I had the DRV8834 Low-Voltage Stepper Driver, and I referenced <a href="https://www.pololu.com/product/2134">the product page</a> for the set up. Here is what I came up with:</p>
+
+![circuit](./circuit.jpeg)
 
 
+<p>Next, to code the stepper motor itself. I wanted to make a piece that would open and close depending on the time, so I made a *very* rough design for it. Essentially, the DC motor would hang from somewhere and a dowel connected to the mechanism would spin it.</p>
 
+![mechanism](./dispensing.jpeg)
 
- <center><video height="600px" controls>
-<source src="dispense.mp4" type="video/mp4" >
-</video> </center>
+<p>I next had to make the code, which I based off of <a href = "https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/">this websites</a>. <br> The code is below:</p>
 
 
 
@@ -85,6 +88,13 @@ void loop() {
 }
 
 </code></pre>
+
+<p>Finally, the video on how it works! Obviously, it will be a lot more defined in the final project.</p>
+
+ <center><video height="600px" controls>
+<source src="dispense.mp4" type="video/mp4" >
+</video> </center>
+
 
 </xmp>
 </body>
