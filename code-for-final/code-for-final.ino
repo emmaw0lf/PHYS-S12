@@ -1,5 +1,5 @@
 // Include the AccelStepper Library
-#include <AccelStepper.h>
+#include &lt;AccelStepper.h&gt;
 
 // Define pin connections
 const int stepsPerRevolution = 200;
@@ -17,7 +17,7 @@ int location = 1;
 #define motorInterfaceType 1
 
 // Creates an instance
-AccelStepper stepper(1, stepPin, dirPin); //maybe here is messed up
+AccelStepper stepper(1, stepPin, dirPin); 
 
 void setup() {
   stepper.setSpeed(1500);
@@ -65,3 +65,6 @@ void loop() {
   }
   stepper.run();
 }
+
+
+
